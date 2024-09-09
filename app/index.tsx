@@ -1,14 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState, useEffect } from "react";
+import { StyleSheet, View } from "react-native";
 
-export default function Page() {
+import { getLatestGames } from "../lib/metacritic";
+
+import { Game } from "../components/GamesList/Game";
+import GamesList from "../components/GamesList/GamesList";
+
+export default function IndexPage() {
+    const [latestGames, setLatestGames] = useState<Game[]>([]);
+
+    useEffect(() => {
+        getLatestGames().then((response) => {
+            setLatestGames(response);
+        });
+    }, []);
+
     return (
         <View style={styles.container}>
-            <View style={styles.main}>
-                <Text style={styles.title}>Hello World</Text>
-                <Text style={styles.subtitle}>
-                    This is the first page of your app.
-                </Text>
-            </View>
+            <GamesList games={latestGames} />
         </View>
     );
 }
@@ -17,20 +26,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        padding: 24,
-    },
-    main: {
-        flex: 1,
-        justifyContent: "center",
-        maxWidth: 960,
-        marginHorizontal: "auto",
-    },
-    title: {
-        fontSize: 64,
-        fontWeight: "bold",
-    },
-    subtitle: {
-        fontSize: 36,
-        color: "#38434D",
     },
 });
