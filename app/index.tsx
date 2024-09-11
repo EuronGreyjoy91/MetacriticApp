@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 
 import { getLatestGames } from "../lib/metacritic";
 
-import { Game } from "../components/GamesList/Game";
+import { Game } from "../components/GameCard/Game";
 import GamesList from "../components/GamesList/GamesList";
 
 export default function IndexPage() {
@@ -26,5 +26,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
+        backgroundColor: "#000",
     },
 });

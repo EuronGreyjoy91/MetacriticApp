@@ -22,13 +22,18 @@ export default function GameCard({ game }: GameCardProps) {
 
 const styles = StyleSheet.create({
     card: {
-        marginBottom: 30,
+        marginBottom: 10,
         flexDirection: "row",
-        backgroundColor: "#09090b",
+        backgroundColor: "#242424",
+        padding: 15,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 10,
     },
     textContainer: {
         flexDirection: "column",
         flexShrink: 1,
+        marginLeft: 10,
     },
     image: {
         width: 107,

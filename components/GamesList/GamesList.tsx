@@ -1,6 +1,6 @@
-import { ScrollView } from "react-native";
-import { Game } from "./Game";
-import GameCard from "./GameCard";
+import { ScrollView, StyleSheet } from "react-native";
+import { Game } from "../GameCard/Game";
+import GameCard from "../GameCard/GameCard";
 
 interface GamesListProps {
     games: Game[];
@@ -8,10 +8,16 @@ interface GamesListProps {
 
 export default function GamesList({ games }: GamesListProps) {
     return (
-        <ScrollView>
+        <ScrollView style={styles.container}>
             {games.map((game) => (
                 <GameCard key={game.slug} game={game} />
             ))}
         </ScrollView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 10,
+    },
+});
