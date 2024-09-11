@@ -1,5 +1,7 @@
 import { View, Text, Image, StyleSheet } from "react-native";
+
 import { Game } from "./Game";
+import ScoreLabel from "../ScoreLabel/ScoreLabel";
 
 interface GameCardProps {
     game: Game;
@@ -11,7 +13,7 @@ export default function GameCard({ game }: GameCardProps) {
             <Image style={styles.image} source={{ uri: game.image }}></Image>
             <View style={styles.textContainer}>
                 <Text style={styles.title}>{game.title}</Text>
-                <Text style={styles.score}>{game.score}</Text>
+                <ScoreLabel score={game.score}/>
                 <Text style={styles.description}>
                     {game.description.slice(0, 100)} ...
                 </Text>
@@ -49,11 +51,5 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 16,
         color: "#eee",
-    },
-    score: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "green",
-        marginBottom: 10,
-    },
+    }
 });
