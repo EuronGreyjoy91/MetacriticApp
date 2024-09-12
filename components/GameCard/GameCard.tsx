@@ -2,6 +2,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 
 import { Game } from "./Game";
 import ScoreLabel from "../ScoreLabel/ScoreLabel";
+import { Link } from "expo-router";
 
 interface GameCardProps {
     game: Game;
@@ -9,16 +10,18 @@ interface GameCardProps {
 
 export default function GameCard({ game }: GameCardProps) {
     return (
-        <View style={styles.card}>
-            <Image style={styles.image} source={{ uri: game.image }}></Image>
-            <View style={styles.textContainer}>
-                <Text style={styles.title}>{game.title}</Text>
-                <ScoreLabel score={game.score}/>
-                <Text style={styles.description}>
-                    {game.description.slice(0, 100)} ...
-                </Text>
+        <Link href={`/${game.slug}`} asChild>
+            <View style={styles.card}>
+                <Image style={styles.image} source={{ uri: game.image }}></Image>
+                <View style={styles.textContainer}>
+                    <Text style={styles.title}>{game.title}</Text>
+                    <ScoreLabel score={game.score}/>
+                    <Text style={styles.description}>
+                        {game.description.slice(0, 100)} ...
+                    </Text>
+                </View>
             </View>
-        </View>
+        </Link>
     );
 }
 
