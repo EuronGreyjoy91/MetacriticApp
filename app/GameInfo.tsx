@@ -4,5 +4,4 @@ export interface GameInfo {
     slug: string;
     description: string;
     score: number;
-    reviews: string;
 }

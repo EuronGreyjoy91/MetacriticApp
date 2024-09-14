@@ -6,6 +6,8 @@ import { getLatestGames } from "../lib/metacritic";
 import { Game } from "../components/GameCard/Game";
 import GamesList from "../components/GamesList/GamesList";
 
+import { StatusBar } from "expo-status-bar";
+
 export default function IndexPage() {
     const [latestGames, setLatestGames] = useState<Game[]>([]);
 
@@ -18,6 +20,7 @@ export default function IndexPage() {
     return (
         <View style={styles.container}>
             <GamesList games={latestGames} />
+            <StatusBar style="light" />
         </View>
     );
 }

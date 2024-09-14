@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 
 import { Game } from "./Game";
 import ScoreLabel from "../ScoreLabel/ScoreLabel";
@@ -11,16 +11,26 @@ interface GameCardProps {
 export default function GameCard({ game }: GameCardProps) {
     return (
         <Link href={`/${game.slug}`} asChild>
-            <View style={styles.card}>
-                <Image style={styles.image} source={{ uri: game.image }}></Image>
-                <View style={styles.textContainer}>
-                    <Text style={styles.title}>{game.title}</Text>
-                    <ScoreLabel score={game.score}/>
-                    <Text style={styles.description}>
-                        {game.description.slice(0, 100)} ...
-                    </Text>
+            <Pressable>
+                <View style={styles.card}>
+                    <Image
+                        style={styles.image}
+                        source={{ uri: game.image }}
+                    ></Image>
+                    <View style={styles.textContainer}>
+                        <Text style={styles.title}>{game.title}</Text>
+                        <View>
+                            <ScoreLabel score={game.score} />
+                            <Text style={styles.releaseDate}>
+                                {game.releaseDate}
+                            </Text>
+                        </View>
+                        <Text style={styles.description}>
+                            {game.description.slice(0, 120)} ...
+                        </Text>
+                    </View>
                 </View>
-            </View>
+            </Pressable>
         </Link>
     );
 }
@@ -49,10 +59,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         color: "#fff",
-        marginTop: 10,
     },
     description: {
         fontSize: 16,
         color: "#eee",
-    }
+        fontStyle: "italic",
+    },
+    releaseDate: {
+        fontWeight: "bold",
+        color: "#ffee00",
+    },
 });

@@ -1,51 +1,66 @@
 import { Stack, useLocalSearchParams } from "expo-router";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 
 import { useState, useEffect } from "react";
 
 import { getGameDetails } from "../lib/metacritic";
 import { GameInfo } from "./GameInfo";
+import ScoreLabel from "../components/ScoreLabel/ScoreLabel";
 
-
-export default function GameSlug(){
+export default function GameSlug() {
     const { slug } = useLocalSearchParams();
     const [game, setGame] = useState<GameInfo>();
 
     useEffect(() => {
-        getGameDetails(slug).then((response) => {
-            setGame(response);
-            console.log(game)
-        });
-    }, []);
+        if (slug) {
+            getGameDetails(slug).then(setGame);
+        }
+    }, [slug]);
 
     return (
-        <View style={styles.container}>
-            <Stack.Screen
-                options={{
-                    headerStyle: { backgroundColor: "#ffee00" },
-                    headerTintColor: "black",
-                    headerTitle: "The Legend of Zelda: Breath of the Wild",
-                }}
-            />
-            <Text style={styles.text}>{slug}</Text>
-        </View>
-    )
+        game != undefined && (
+            <View style={styles.container}>
+                <Stack.Screen
+                    options={{
+                        headerStyle: { backgroundColor: "#ffee00" },
+                        headerTintColor: "black",
+                        headerTitle: "Game info",
+                        headerLeft: null,
+                        headerRight: null,
+                    }}
+                />
+                <Image style={styles.image} source={{ uri: game.img }}></Image>
+                <ScoreLabel score={game.score}></ScoreLabel>
+                <Text style={styles.title}>{game.title}</Text>
+                <Text style={styles.description}>{game.description}</Text>
+            </View>
+        )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#000",
-        padding: 10,
+        padding: 20,
         flex: 1,
+        alignItems: "center",
     },
-    mainText: {
-        color: "#fff",
-        marginBottom: 10,
+    image: {
+        width: 214,
+        height: 294,
+        borderRadius: 10,
+        marginBottom: 15,
+        marginTop: 20,
+    },
+    title: {
         marginTop: 10,
-        fontWeight: "bold",
-    },
-    text: {
         color: "#fff",
+        fontSize: 20,
+        fontWeight: "bold",
         marginBottom: 10,
+    },
+    description: {
+        marginTop: 10,
+        color: "#fff",
     },
 });
