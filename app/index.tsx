@@ -26,8 +26,6 @@ export default function IndexPage() {
 
 const styles = StyleSheet.create({
     container: {
-        display: "flex",
-        alignItems: "center",
         backgroundColor: "#000",
     },
 });

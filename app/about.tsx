@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { A } from "@expo/html-elements";
 
 export default function About() {
     return (
         <View style={styles.container}>
+            <StatusBar style="light" />
             <Text style={styles.mainText}>Sobre el proyecto:</Text>
 
             <Text style={styles.text}>
