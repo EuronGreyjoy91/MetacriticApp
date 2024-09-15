@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 import { getLatestGames } from "../lib/metacritic";
 
 import { Game } from "../components/GameCard/Game";
 import GamesList from "../components/GamesList/GamesList";
-
-import { StatusBar } from "expo-status-bar";
 
 export default function IndexPage() {
     const [latestGames, setLatestGames] = useState<Game[]>([]);
@@ -19,15 +18,15 @@ export default function IndexPage() {
 
     return (
         <View style={styles.container}>
-            <GamesList games={latestGames} />
             <StatusBar style="light" />
+            <GamesList games={latestGames} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        display: "flex",
         alignItems: "center",
         backgroundColor: "#000",
     },

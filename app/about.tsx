@@ -1,6 +1,4 @@
-import { Link } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
-import { HomeIcon } from "../components/Icons/Icons";
 import { A } from "@expo/html-elements";
 
 export default function About() {
