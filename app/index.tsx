@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { getLatestGames } from "../lib/metacritic";
 
 import { Game } from "../components/GameCard/Game";
-import GamesList from "../components/GamesList/GamesList";
+import GameCard from "../components/GameCard/GameCard";
+import LoadingIndicator from "../components/LoadingIndicator/LoadingIndicator";
 
-export default function IndexPage() {
+export default function Index() {
     const [latestGames, setLatestGames] = useState<Game[]>([]);
 
     useEffect(() => {
@@ -17,9 +18,15 @@ export default function IndexPage() {
     }, []);
 
     return (
-        <View style={styles.container}>
+        latestGames == null
+        ? <LoadingIndicator/>
+        : <View style={styles.container}>
             <StatusBar style="light" />
-            <GamesList games={latestGames} />
+            <ScrollView contentContainerStyle={{flex: 1, marginTop: 10}}>
+                {latestGames.map((game) => (
+                    <GameCard key={game.slug} game={game} />
+                ))}
+            </ScrollView>
         </View>
     );
 }
@@ -27,5 +34,6 @@ export default function IndexPage() {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#000",
-    },
+        flex: 1
+    }
 });

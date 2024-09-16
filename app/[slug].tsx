@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { getGameDetails } from "../lib/metacritic";
 import { GameInfo } from "../components/GameDetail/GameInfo";
 import GameDetail from "../components/GameDetail/GameDetail";
+import LoadingIndicator from "../components/LoadingIndicator/LoadingIndicator";
 
 export default function GameSlug() {
     const { slug } = useLocalSearchParams();
@@ -15,5 +16,7 @@ export default function GameSlug() {
         }
     }, [slug]);
 
-    return game != undefined && <GameDetail game={game} />;
+    return game == null 
+        ? <LoadingIndicator/>
+        : <GameDetail game={game} />
 }

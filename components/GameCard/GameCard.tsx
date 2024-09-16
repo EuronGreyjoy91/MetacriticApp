@@ -19,11 +19,11 @@ export default function GameCard({ game }: GameCardProps) {
                     ></Image>
                     <View style={styles.textContainer}>
                         <Text style={styles.title}>{game.title}</Text>
-                        <View>
-                            <ScoreLabel score={game.score} />
+                        <View style={styles.caca}>
                             <Text style={styles.releaseDate}>
                                 {game.releaseDate}
                             </Text>
+                            <ScoreLabel score={game.score} />
                         </View>
                         <Text style={styles.description}>
                             {game.description.slice(0, 120)} ...
@@ -44,6 +44,12 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         borderRadius: 10,
+    },
+    caca: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 3,
+        justifyContent: "space-between",
     },
     textContainer: {
         flexDirection: "column",
