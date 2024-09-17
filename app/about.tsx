@@ -15,14 +15,15 @@ export default function About() {
 
             <Text style={styles.text}>
                 <A href="https://www.youtube.com/watch?v=7iobxzd_2wY&t=5s">
-                    <YoutubeIcon/> Link a Parte 1!
+                    <YoutubeIcon /> Link a Parte 1!
                 </A>
             </Text>
             <Text style={styles.text}>
                 <A href="https://www.youtube.com/watch?v=ZDoiMLqWz2E">
-                    <YoutubeIcon/> Link a Parte 2!
+                    <YoutubeIcon /> Link a Parte 2!
                 </A>
             </Text>
+            <Text style={styles.text}>-----</Text>
             <Text style={styles.text}>
                 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
