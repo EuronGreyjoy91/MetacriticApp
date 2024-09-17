@@ -11,24 +11,24 @@ interface GameDetailProps {
 
 export default function GameDetail({ game }: GameDetailProps) {
     return (
-            <View style={styles.container}>
-                <StatusBar style="dark" />
-                <ScrollView contentContainerStyle={{flex: 1, alignItems: 'center'}}>
-                    <Stack.Screen
-                        options={{
-                            headerStyle: { backgroundColor: "#ffee00" },
-                            headerTintColor: "black",
-                            headerTitle: game.title,
-                            headerLeft: null,
-                            headerRight: null,
-                        }}
-                    />
-                    <Image style={styles.image} source={{ uri: game.img }}></Image>
-                    <ScoreLabel score={game.score}></ScoreLabel>
-                    <Text style={styles.title}>{game.title}</Text>
-                    <Text style={styles.description}>{game.description}</Text>
-                </ScrollView>
-            </View>
+        <View style={styles.container}>
+            <StatusBar style="dark" />
+            <ScrollView contentContainerStyle={{ alignItems: "center" }}>
+                <Stack.Screen
+                    options={{
+                        headerStyle: { backgroundColor: "#ffee00" },
+                        headerTintColor: "black",
+                        headerTitle: game.title,
+                        headerLeft: null,
+                        headerRight: null,
+                    }}
+                />
+                <Image style={styles.image} source={{ uri: game.img }}></Image>
+                <ScoreLabel score={game.score}></ScoreLabel>
+                <Text style={styles.title}>{game.title}</Text>
+                <Text style={styles.description}>{game.description}</Text>
+            </ScrollView>
+        </View>
     );
 }
 

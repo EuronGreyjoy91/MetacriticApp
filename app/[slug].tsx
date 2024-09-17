@@ -16,7 +16,5 @@ export default function GameSlug() {
         }
     }, [slug]);
 
-    return game == null 
-        ? <LoadingIndicator/>
-        : <GameDetail game={game} />
+    return game == null ? <LoadingIndicator /> : <GameDetail game={game} />;
 }

@@ -18,11 +18,8 @@ export default function Index() {
         });
     }, []);
 
-    return latestGames == null ? (
-        <>
-            <WhiteStatusBar />
-            <LoadingIndicator />
-        </>
+    return latestGames.length == 0 ? (
+        <LoadingIndicator />
     ) : (
         <>
             <WhiteStatusBar />
