@@ -4,7 +4,7 @@ import { Pressable } from "react-native";
 import { Logo } from "../components/Logo/Logo";
 import { CircleInfoIcon } from "../components/Icons/Icons";
 
-export default function Layout() {
+export default function RootLayout() {
     return (
         <Stack
             screenOptions={{
@@ -25,6 +25,15 @@ export default function Layout() {
                     </Link>
                 ),
             }}
-        ></Stack>
+        >
+            <Stack.Screen name="home" />
+            <Stack.Screen name="[slug]" />
+            <Stack.Screen
+                name="(tabs)"
+                options={({ route }) => ({
+                    headerRight: () => null,
+                })}
+            />
+        </Stack>
     );
 }

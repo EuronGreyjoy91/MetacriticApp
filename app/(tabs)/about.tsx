@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { A } from "@expo/html-elements";
-import { YoutubeIcon } from "../components/Icons/Icons";
+import { YoutubeIcon } from "../../components/Icons/Icons";
 
 export default function About() {
     return (
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 10,
         fontWeight: "bold",
+        fontSize: 20,
     },
     text: {
         color: "#fff",
