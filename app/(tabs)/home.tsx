@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 
-import { getLatestGames } from "../lib/metacritic";
+import { getLatestGames } from "../../lib/metacritic";
 
-import { Game } from "../components/GameCard/Game";
-import GameCard from "../components/GameCard/GameCard";
-import LoadingIndicator from "../components/LoadingIndicator/LoadingIndicator";
-import WhiteStatusBar from "../components/WhiteStatusBar/WhiteStatusBar";
+import { Game } from "../../components/GameCard/Game";
+import GameCard from "../../components/GameCard/GameCard";
+import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
+import WhiteStatusBar from "../../components/WhiteStatusBar/WhiteStatusBar";
 
 export default function Home() {
     const [latestGames, setLatestGames] = useState<Game[]>([]);

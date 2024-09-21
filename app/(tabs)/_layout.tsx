@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { GithubIcon, InfoIcon } from "../../components/Icons/Icons";
+import { GithubIcon, InfoIcon, HomeIcon } from "../../components/Icons/Icons";
 
 export default function TabsLayout() {
     return (
@@ -11,10 +11,10 @@ export default function TabsLayout() {
             }}
         >
             <Tabs.Screen
-                name="github"
+                name="home"
                 options={{
-                    title: "Github",
-                    tabBarIcon: ({ color }) => <GithubIcon color={color} />,
+                    title: "Home",
+                    tabBarIcon: ({ color }) => <HomeIcon color={color} />,
                 }}
             />
             <Tabs.Screen
@@ -22,6 +22,13 @@ export default function TabsLayout() {
                 options={{
                     title: "About",
                     tabBarIcon: ({ color }) => <InfoIcon color={color} />,
+                }}
+            />
+            <Tabs.Screen
+                name="github"
+                options={{
+                    title: "Github",
+                    tabBarIcon: ({ color }) => <GithubIcon color={color} />,
                 }}
             />
         </Tabs>

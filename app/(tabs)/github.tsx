@@ -1,19 +1,28 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import { A } from "@expo/html-elements";
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    Pressable,
+    Linking,
+} from "react-native";
 
 export default function Github() {
+    const openGithub = () => {
+        Linking.openURL("https://github.com/EuronGreyjoy91");
+    };
+
     return (
         <View style={styles.container}>
-            <Image
-                style={styles.image}
-                source={{
-                    uri: "https://avatars.githubusercontent.com/u/52301500?v=4",
-                }}
-            ></Image>
-
-            <Text style={styles.text}>
-                <A href="https://github.com/EuronGreyjoy91">Ir a Github!</A>
-            </Text>
+            <Pressable onPress={openGithub} style={styles.pressable}>
+                <Image
+                    style={styles.image}
+                    source={{
+                        uri: "https://avatars.githubusercontent.com/u/52301500?v=4",
+                    }}
+                />
+                <Text style={styles.text}>Ir a Github!</Text>
+            </Pressable>
         </View>
     );
 }
@@ -22,6 +31,9 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "#000",
         flex: 1,
+        alignItems: "center",
+    },
+    pressable: {
         alignItems: "center",
     },
     text: {

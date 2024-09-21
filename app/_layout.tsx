@@ -17,23 +17,10 @@ export default function RootLayout() {
                 },
                 headerTitle: "",
                 headerLeft: () => <Logo />,
-                headerRight: () => (
-                    <Link asChild href="/about">
-                        <Pressable>
-                            <CircleInfoIcon />
-                        </Pressable>
-                    </Link>
-                ),
             }}
         >
-            <Stack.Screen name="home" />
+            <Stack.Screen name="(tabs)" />
             <Stack.Screen name="[slug]" />
-            <Stack.Screen
-                name="(tabs)"
-                options={({ route }) => ({
-                    headerRight: () => null,
-                })}
-            />
         </Stack>
     );
 }
